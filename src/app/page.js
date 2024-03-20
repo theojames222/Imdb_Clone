@@ -1,5 +1,6 @@
 import Results from "@/components/Results";
 const API_KEY = process.env.API_KEY;
+import { Suspense } from "react";
 
 export default async function Home({ searchParams }) {
   const genre = searchParams.genre || "fetchTrending";
@@ -16,8 +17,10 @@ export default async function Home({ searchParams }) {
   const results = data.results;
   // console.log(results);
   return (
-    <div>
-      <Results results={results} />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div>
+        <Results results={results} />
+      </div>
+    </Suspense>
   );
 }
