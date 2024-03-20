@@ -1,5 +1,4 @@
 import Results from "@/components/Results";
-import React from "react";
 const API_KEY = process.env.API_KEY;
 
 export default async function Home({ searchParams }) {
